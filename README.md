@@ -1,4 +1,4 @@
 localhost
 =========
 
-Personal computer Puppet configuration
+Personal computer Puppet configuration.
