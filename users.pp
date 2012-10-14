@@ -1,3 +1,5 @@
+# Recursos relativos aos usuários do sistema
+
 # Criando o meu usuário
 user { 'taciano':
   ensure  => 'present',
