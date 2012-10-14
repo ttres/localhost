@@ -11,6 +11,9 @@ user { 'taciano':
 
 # Criando a pasta home do meu usuário
 file {'/home/taciano':
-      ensure => directory,
-      mode   => 0700,
+  ensure => directory,
+  mode   => '0700',
+  owner  => 'taciano',
+  group  => 'taciano',
+  before => User['taciano'],
 }
