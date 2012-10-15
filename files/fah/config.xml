@@ -1,0 +1,21 @@
+<config>
+  <!-- Logging -->
+  <verbosity v='5'/>
+
+  <!-- Network -->
+  <proxy v=':8080'/>
+
+  <!-- Slot Control -->
+  <pause-on-battery v='true'/>
+
+  <!-- User Information -->
+  <passkey v='40da789458f2b506e6ca107ddad5670d'/>
+  <team v='45104'/>
+  <user v='ttres'/>
+
+  <!-- Work Unit Control -->
+  <next-unit-percentage v='95'/>
+
+  <!-- Folding Slots -->
+  <slot id='1' type='SMP'/>
+</config>
