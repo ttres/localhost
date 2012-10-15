@@ -1,0 +1,10 @@
+GIT
+  remote: https://github.com/puppetlabs/puppetlabs-apt.git
+  ref: feature/master/dans_refactor
+  sha: a11af502cd839efbdab56da95aa1965e75d7ae1c
+  specs:
+    apt (0.0.1)
+
+DEPENDENCIES
+  apt (>= 0)
+
