@@ -1,10 +1,10 @@
 # Recursos referentes à ferramentas de desenvolvimento/codificação
 class localhost::packages::dev {
   # Development
-  package { 'cvs': }
+  package { 'cvs': ensure => latest }
 
-  package { 'git': }
+  package { 'git': ensure => latest }
 
-  package { 'subversion': }
+  package { 'subversion': ensure => latest }
 
 }

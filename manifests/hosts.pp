@@ -2,6 +2,13 @@
 class localhost::hosts {
   ############################################################
   # Gerais
+  host { 'localhost':
+    ensure       => present,
+    name         => $::fqdn,
+    ip           => $::ipaddress,
+    host_aliases => $::hostname,
+  }
+
   host { 'servcom.bb.com.br':
     ensure  => present,
     ip      => '172.17.209.225',
@@ -87,10 +94,45 @@ class localhost::hosts {
   }
 
   ############################################################
-
-  host { '$fqdn':
+  # Intranet
+  host { 'intra1':
     ensure       => present,
-    ip           => $ipaddress,
-    host_aliases => $hostname,
+    ip           => '172.17.202.249',
+    host_aliases => [
+      'intra1.desenv.bb.com.br'],
+    comment      => 'Nova Intranet - Ambiente de desenvolvimento - instância 01',
   }
+
+  host { 'intra2':
+    ensure       => present,
+    ip           => '172.17.202.110',
+    host_aliases => [
+      'intra2.desenv.bb.com.br'],
+    comment      => 'Nova Intranet - Ambiente de desenvolvimento - instância 02',
+  }
+
+  host { 'intra3':
+    ensure       => present,
+    ip           => '172.17.202.111',
+    host_aliases => [
+      'intra3.desenv.bb.com.br'],
+    comment      => 'Nova Intranet - Ambiente de desenvolvimento - instância 03',
+  }
+
+  host { 'intra4':
+    ensure       => present,
+    ip           => '172.17.202.112',
+    host_aliases => [
+      'intra4.desenv.bb.com.br'],
+    comment      => 'Nova Intranet - Ambiente de desenvolvimento - instância 04',
+  }
+
+  host { 'intra5':
+    ensure       => present,
+    ip           => '172.17.202.113',
+    host_aliases => [
+      'intra5.desenv.bb.com.br'],
+    comment      => 'Nova Intranet - Ambiente de desenvolvimento - instância 05',
+  }
+
 }

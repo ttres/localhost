@@ -63,15 +63,6 @@ class localhost::users {
     uid     => '1',
   }
 
-  user { 'fahclient':
-    ensure  => 'present',
-    comment => 'Folding@home Client',
-    gid     => '65534',
-    home    => '/var/lib/fahclient',
-    shell   => '/bin/false',
-    uid     => '117',
-  }
-
   user { 'games':
     ensure  => 'present',
     comment => 'games',

@@ -1,14 +1,12 @@
 # Recursos referentes a pacotes gerais do sistema operacional
 class localhost::packages::misc {
   # Misc
-  package { 'vim': }
+  package { 'vim': ensure => latest }
 
-  package { 'screen': }
+  package { 'htop': ensure => latest }
 
-  package { 'htop': }
+  package { 'conky': ensure => latest }
 
-  package { 'conky': }
-
-  package { 'wget': }
+  package { 'wget': ensure => latest }
 
 }

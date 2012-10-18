@@ -9,6 +9,7 @@ class localhost::packages::fah {
     gid     => '65534',
     home    => '/var/lib/fahclient',
     shell   => '/bin/false',
+    uid     => '117',
   }
 
   package { 'libssl0.9.8': ensure => present, }
@@ -19,7 +20,7 @@ class localhost::packages::fah {
     group   => 'root',
     mode    => '0644',
     #  source  => 'puppet://modules/localhost/fah/config.xml',
-    source  => 'puppet://server/modules/localhost/fah/config.xml',
+    source  => 'puppet:///modules/localhost/fah/config.xml',
     require => User['fahclient'],
     notify  => Service['FAHClient'],
   }
@@ -27,14 +28,14 @@ class localhost::packages::fah {
   file { 'ignore-nice-load':
     ensure  => present,
     path    => '/sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load',
-    content => '1\n',
+    content => '1',
   }
 
   # https://fah-web.stanford.edu/file-releases/public/release/fahclient/debian-testing-64bit/v7.1/fahclient_7.1.52_amd64.deb
   package { 'fahclient':
     ensure   => present,
     provider => 'dpkg',
-    source   => 'puppet://modules/localhost/fah/fahclient_7.1.52_amd64.deb',
+    source   => 'puppet:///modules/localhost/fah/fahclient_7.1.52_amd64.deb',
     require  => [
       Package['libssl0.9.8'],
       User['fahclient'],
@@ -47,14 +48,14 @@ class localhost::packages::fah {
   package { 'python-pyorbit':
     ensure   => present,
     provider => 'dpkg',
-    source   => 'puppet://modules/localhost/fah/python-pyorbit_2.24.0-6ubuntu2_amd64.deb',
+    source   => 'puppet:///modules/localhost/fah/python-pyorbit_2.24.0-6ubuntu2_amd64.deb',
   }
 
   # http://ubuntu.media.mit.edu/ubuntu//pool/main/g/gnome-python/python-gnome2_2.28.1+dfsg-1_amd64.deb',
   package { 'python-gnome2':
     ensure   => present,
     provider => 'dpkg',
-    source   => 'puppet://modules/localhost/fah/python-gnome2_2.28.1+dfsg-1_amd64.deb',
+    source   => 'puppet:///modules/localhost/fah/python-gnome2_2.28.1+dfsg-1_amd64.deb',
     require  => Package['python-pyorbit'],
   }
 
@@ -62,7 +63,7 @@ class localhost::packages::fah {
   package { 'fahcontrol':
     ensure   => present,
     provider => 'dpkg',
-    source   => 'puppet://modules/localhost/fah/fahcontrol_7.1.52-1_all.deb',
+    source   => 'puppet:///modules/localhost/fah/fahcontrol_7.1.52-1_all.deb',
     require  => Package['python-gnome2'],
   }
 
