@@ -25,11 +25,23 @@ class localhost::packages::fah {
     notify  => Service['FAHClient'],
   }
 
-  file { 'ignore-nice-load':
-    ensure  => present,
-    path    => '/sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load',
-    content => '1',
+  exec { 'enable-ignore-nice-load':
+    command   => 'echo 1 | tee /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load',
+    cwd       => '/',
+    path      => '/bin:/usr/bin',
+    tries     => '3',
+    try_sleep => '60',
+    user      => 'root',
   }
+
+  #  file { 'ignore-nice-load':
+  #    ensure  => file,
+  #    path    => '/sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load',
+  #    content => '1',
+  #    owner   => 'root',
+  #    group   => 'root',
+  #    mode    => '0644',
+  #  }
 
   # https://fah-web.stanford.edu/file-releases/public/release/fahclient/debian-testing-64bit/v7.1/fahclient_7.1.52_amd64.deb
   package { 'fahclient':
@@ -39,7 +51,7 @@ class localhost::packages::fah {
     require  => [
       Package['libssl0.9.8'],
       User['fahclient'],
-      File['ignore-nice-load']],
+      Exec['enable-ignore-nice-load']],
   }
 
   service { 'FAHClient': ensure => running, }
