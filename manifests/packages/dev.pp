@@ -5,6 +5,8 @@ class localhost::packages::dev {
 
   package { 'git': ensure => latest }
 
+  package { 'git-flow': ensure => latest }
+
   package { 'subversion': ensure => latest }
 
 }
