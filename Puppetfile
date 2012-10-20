@@ -7,3 +7,4 @@ forge "http://forge.puppetlabs.com"
 
 mod 'apt',
   :git => 'https://github.com/puppetlabs/puppetlabs-apt.git'
+# :git => 'https://github.com/camptocamp/puppet-apt'
