@@ -7,3 +7,7 @@ forge "http://forge.puppetlabs.com"
 
 mod 'apt',
   :git => 'https://github.com/puppetlabs/puppetlabs-apt.git'
+
+mod 'dnsmasq'
+  :git => 'https://github.com/saz/puppet-dnsmasq'
+  
