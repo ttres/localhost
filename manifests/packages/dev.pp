@@ -2,6 +2,11 @@
 class localhost::packages::dev {
   package { 'cvs': ensure => latest }
 
+  package { 'stunnel4':
+    ensure  => latest,
+    require => Package['cvs'],
+  }
+
   package { 'subversion': ensure => latest }
 
   package { 'git': ensure => latest }
@@ -23,8 +28,26 @@ class localhost::packages::dev {
   package { 'git-flow':
     ensure  => latest,
     require => [
+      Package['git'],
       Package['bash-completion'],
       File['/etc/bash_completion.d/git-flow']]
+  }
+
+  package { 'virtualbox': ensure => latest, }
+
+  package { 'virtualbox-dkms':
+    ensure  => latest,
+    require => Package['virtualbox'],
+  }
+
+  package { 'virtualbox-qt':
+    ensure  => latest,
+    require => Package['virtualbox'],
+  }
+
+  package { 'vagrant':
+    ensure  => latest,
+    require => Package['virtualbox'],
   }
 
 }
