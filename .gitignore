@@ -1,6 +1,8 @@
 /.project
-.tmp/
-modules/
+/.tmp/
+/modules/
 /.librarian
 /*.deb
 /*.rpm
+/pkg
+/metadata.json
