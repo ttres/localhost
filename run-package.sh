@@ -1,41 +1,50 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # Cria os pacotes .deb e .rpm para este módulo
 
-echo "Limpando as versões anteriores ..."
-rm --verbose --force *.deb
-rm --verbose --force *.rpm
+echo "**** Limpando as versões anteriores ..."
+rm --verbose --force --recursive pkg
 
 FPM=/usr/local/bin/fpm
-NOME=taciano-localhost
+NOME=`grep name Modulefile | cut -d\' -f2`
 
-VERSAO=1.0.0
+VERSAO=`grep version Modulefile | cut -d\' -f2`
 ITERATION=1
 
-PREFIX=/etc/puppet/modules
-LICENSE=EPL
+LICENSE=`grep license Modulefile | cut -d\' -f2`
 
 ARCHITECTURE=all
-MAINTAINER=tacianotres@gmail.com
-URL=https://github.com/ttres/localhost
+MAINTAINER=`grep author Modulefile | cut -d\' -f2`
+URL=`grep project_page Modulefile | cut -d\' -f2`
 
-DESCRIPTION='Localhost Puppet configuration.'
-EXCLUSIONS="-x .git -x .gitignore -x .librarian -x .project -x .tmp"
+DESCRIPTION=`grep description Modulefile | cut -d\' -f2`
 
-echo "Gerando o pacote .deb ..."
-${FPM} -s dir \
--t deb \
---prefix ${NOME} \
---name ${NOME} \
---version ${VERSAO} \
---iteration ${ITERATION} \
---license ${LICENSE} \
---architecture ${ARCHITECTURE} \
---maintainer ${MAINTAINER} \
---vendor ${MAINTAINER} \
---url ${URL} \
---description "${DESCRIPTION}" \
---verbose \
-files manifests hiera.yaml Puppetfile README.md tests
-# ${EXCLUSIONS} \
+mkdir --parents pkg
+for TYPE in deb rpm
+do
+  echo "**** Gerando o pacote .${TYPE} ..."
+  ${FPM} -s dir \
+  -t ${TYPE} \
+  --prefix ${NOME} \
+  --name ${NOME} \
+  --version ${VERSAO} \
+  --iteration ${ITERATION} \
+  --license ${LICENSE} \
+  --architecture ${ARCHITECTURE} \
+  --maintainer ${MAINTAINER} \
+  --vendor ${MAINTAINER} \
+  --url ${URL} \
+  --description "${DESCRIPTION}" \
+  files manifests hiera.yaml Puppetfile README.md tests
+#  --verbose \
 
+  mv *.${TYPE} pkg/
+done
+
+echo "**** Gerando o pacote .tar.gz ..."
+puppet module build .
+
+echo "**** Limpando as sobras ..."
+rm --force --recursive pkg/${NOME}-${VERSAO}
+
+echo "**** Empacotamento finalizado com sucesso!"
