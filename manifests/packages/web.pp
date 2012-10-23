@@ -23,4 +23,5 @@ class localhost::packages::web {
     require => Package['firefox'],
   }
 
+  package { 'lynx-cur': ensure => latest, }
 }
