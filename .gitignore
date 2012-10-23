@@ -2,3 +2,5 @@
 .tmp/
 modules/
 /.librarian
+/*.deb
+/*.rpm
