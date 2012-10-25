@@ -9,12 +9,43 @@ class localhost::packages::misc {
   # Mostra informações da máquina no desktop
   package { 'conky': ensure => latest }
 
-  package { 'conky-all': ensure => latest, }
+  package { 'conky-all':
+    ensure  => latest,
+    require => Package['conky'],
+  }
 
   package { 'wget': ensure => latest }
 
   # pacote para tratamento/validação de arquivos XML
   package { 'libxml2-utils': ensure => latest }
+
+  package { 'apport-symptoms': ensure => latest, }
+
+  package { 'apt': ensure => latest, }
+
+  package { 'apt-transport-https': ensure => latest, }
+
+  package { 'apt-utils': ensure => latest, }
+
+  package { 'aptdaemon': ensure => latest, }
+
+  package { 'aptdaemon-data': ensure => latest, }
+
+  package { 'libapt-inst1.4': ensure => latest, }
+
+  package { 'libapt-pkg4.12': ensure => latest, }
+
+  package { 'lsb-base': ensure => latest, }
+
+  package { 'lsb-release': ensure => latest, }
+
+  package { 'python-aptdaemon': ensure => latest, }
+
+  package { 'python-aptdaemon.gtk3widgets': ensure => latest, }
+
+  package { 'python-aptdaemon.pkcompat': ensure => latest, }
+
+  package { 'xserver-xorg-input-wacom': ensure => latest, }
 
   package { 'alacarte': ensure => latest, }
 
@@ -38,6 +69,8 @@ class localhost::packages::misc {
 
   # para que serve? pq o blueprint colocou se não precisa?
   package { 'boot-sav-nonfree': ensure => absent, }
+
+  package { 'boot-sav-extra': ensure => latest, }
 
   package { 'build-essential': ensure => latest, }
 

@@ -8,19 +8,36 @@ class localhost::packages::web {
 
   package { 'filezilla': ensure => latest, }
 
-  package { 'filezilla-common': ensure => latest, }
+  package { 'filezilla-common':
+    ensure  => latest,
+    require => Package['filezilla'],
+  }
 
-  # manter o Firefox na versão 15, até resolverem o problema do iNotes
-  package { 'firefox': ensure => '15.0.1+build1-0ubuntu0.12.04.1', }
+  # Versão do Firefox liberada
+  package { 'firefox': ensure => latest, }
+
+  package { 'firefox-gnome-support':
+    ensure  => latest,
+    require => Package['firefox'],
+  }
 
   package { 'firefox-locale-pt':
-    ensure  => '15.0.1+build1-0ubuntu0.12.04.1',
+    ensure  => latest,
     require => Package['firefox'],
   }
 
   package { 'firefox-locale-en':
-    ensure  => '15.0.1+build1-0ubuntu0.12.04.1',
+    ensure  => latest,
     require => Package['firefox'],
   }
 
+  # Pacote interno de versão estável do Firefox
+  # TODO substituir o source por um repo apt
+  package { 'bbfirefox-esr':
+    ensure   => present,
+    source   => '/home/taciano/Downloads/bbfirefox-esr_10.0.9-0_amd64.deb',
+    provider => 'dpkg'
+  }
+
+  package { 'lynx-cur': ensure => latest, }
 }
