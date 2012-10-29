@@ -1,7 +1,6 @@
 # Recursos relativos aos pacotes do sistema operacional, separados por função
 class localhost::packages {
   # Manter desabilitado se não houver conectividade de rede
-  # TODO garantir que o update será executado antes da instalação/atualização dos pacotes
   exec { 'apt-update':
     command   => 'apt-get -q update',
     path      => '/usr/bin',
