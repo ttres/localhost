@@ -9,12 +9,43 @@ class localhost::packages::misc {
   # Mostra informações da máquina no desktop
   package { 'conky': ensure => latest }
 
-  package { 'conky-all': ensure => latest, }
+  package { 'conky-all':
+    ensure  => latest,
+    require => Package['conky'],
+  }
 
   package { 'wget': ensure => latest }
 
   # pacote para tratamento/validação de arquivos XML
   package { 'libxml2-utils': ensure => latest }
+
+  package { 'apport-symptoms': ensure => latest, }
+
+  package { 'apt': ensure => latest, }
+
+  package { 'apt-transport-https': ensure => latest, }
+
+  package { 'apt-utils': ensure => latest, }
+
+  package { 'aptdaemon': ensure => latest, }
+
+  package { 'aptdaemon-data': ensure => latest, }
+
+  package { 'libapt-inst1.4': ensure => latest, }
+
+  package { 'libapt-pkg4.12': ensure => latest, }
+
+  package { 'lsb-base': ensure => latest, }
+
+  package { 'lsb-release': ensure => latest, }
+
+  package { 'python-aptdaemon': ensure => latest, }
+
+  package { 'python-aptdaemon.gtk3widgets': ensure => latest, }
+
+  package { 'python-aptdaemon.pkcompat': ensure => latest, }
+
+  package { 'xserver-xorg-input-wacom': ensure => latest, }
 
   package { 'alacarte': ensure => latest, }
 
@@ -39,6 +70,8 @@ class localhost::packages::misc {
   # para que serve? pq o blueprint colocou se não precisa?
   package { 'boot-sav-nonfree': ensure => absent, }
 
+  package { 'boot-sav-extra': ensure => latest, }
+
   package { 'build-essential': ensure => latest, }
 
   package { 'cabextract': ensure => latest, }
@@ -56,6 +89,8 @@ class localhost::packages::misc {
   package { 'debconf-utils': ensure => latest, }
 
   package { 'debhelper': ensure => latest, }
+
+  package { 'apparmor': ensure => latest, }
 
   package { 'dh-apparmor': ensure => latest, }
 
@@ -95,7 +130,41 @@ class localhost::packages::misc {
 
   package { 'gir1.2-panelapplet-4.0': ensure => latest, }
 
+  package { 'libjavascriptcoregtk-3.0-0': ensure => latest, }
+
+  package { 'libwebkitgtk-3.0-0': ensure => latest, }
+
+  package { 'libwebkitgtk-3.0-common': ensure => latest, }
+
+  package { 'gir1.2-javascriptcoregtk-3.0': ensure => latest, }
+
+  package { 'gir1.2-webkit-3.0': ensure => latest, }
+
   package { 'gir1.2-unique-3.0': ensure => latest, }
+
+  package { 'jockey-common': ensure => latest, }
+
+  package { 'jockey-gtk': ensure => latest, }
+
+  package { 'landscape-client-ui-install': ensure => latest, }
+
+  package { 'libxcb-dri2-0': ensure => latest, }
+
+  package { 'libxcb-glx0': ensure => latest, }
+
+  package { 'libxcb-render0': ensure => latest, }
+
+  package { 'libxcb-render0:i386': ensure => latest, }
+
+  package { 'libxcb-shape0': ensure => latest, }
+
+  package { 'libxcb-shm0': ensure => latest, }
+
+  package { 'libxcb-shm0:i386': ensure => latest, }
+
+  package { 'unity-greeter': ensure => latest, }
+
+  package { 'glade2script': ensure => latest, }
 
   package { 'git-man': ensure => latest, }
 
@@ -630,6 +699,14 @@ class localhost::packages::misc {
   package { 'libxcb-keysyms1': ensure => latest, }
 
   package { 'libxcb-randr0': ensure => latest, }
+
+  package { 'libgcc1': ensure => latest, }
+
+  package { 'tzdata': ensure => latest, }
+
+  package { 'libc6': ensure => latest, }
+
+  package { 'libxcb1': ensure => latest, }
 
   package { 'libxcb-xv0': ensure => latest, }
 
