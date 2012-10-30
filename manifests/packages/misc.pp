@@ -90,6 +90,8 @@ class localhost::packages::misc {
 
   package { 'debhelper': ensure => latest, }
 
+  package { 'apparmor': ensure => latest, }
+
   package { 'dh-apparmor': ensure => latest, }
 
   package { 'diodon': ensure => latest, }
@@ -128,7 +130,41 @@ class localhost::packages::misc {
 
   package { 'gir1.2-panelapplet-4.0': ensure => latest, }
 
+  package { 'libjavascriptcoregtk-3.0-0': ensure => latest, }
+
+  package { 'libwebkitgtk-3.0-0': ensure => latest, }
+
+  package { 'libwebkitgtk-3.0-common': ensure => latest, }
+
+  package { 'gir1.2-javascriptcoregtk-3.0': ensure => latest, }
+
+  package { 'gir1.2-webkit-3.0': ensure => latest, }
+
   package { 'gir1.2-unique-3.0': ensure => latest, }
+
+  package { 'jockey-common': ensure => latest, }
+
+  package { 'jockey-gtk': ensure => latest, }
+
+  package { 'landscape-client-ui-install': ensure => latest, }
+
+  package { 'libxcb-dri2-0': ensure => latest, }
+
+  package { 'libxcb-glx0': ensure => latest, }
+
+  package { 'libxcb-render0': ensure => latest, }
+
+  package { 'libxcb-render0:i386': ensure => latest, }
+
+  package { 'libxcb-shape0': ensure => latest, }
+
+  package { 'libxcb-shm0': ensure => latest, }
+
+  package { 'libxcb-shm0:i386': ensure => latest, }
+
+  package { 'unity-greeter': ensure => latest, }
+
+  package { 'glade2script': ensure => latest, }
 
   package { 'git-man': ensure => latest, }
 
@@ -663,6 +699,14 @@ class localhost::packages::misc {
   package { 'libxcb-keysyms1': ensure => latest, }
 
   package { 'libxcb-randr0': ensure => latest, }
+
+  package { 'libgcc1': ensure => latest, }
+
+  package { 'tzdata': ensure => latest, }
+
+  package { 'libc6': ensure => latest, }
+
+  package { 'libxcb1': ensure => latest, }
 
   package { 'libxcb-xv0': ensure => latest, }
 
