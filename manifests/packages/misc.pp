@@ -800,8 +800,6 @@ class localhost::packages::misc {
 
   package { 'poppler-data': ensure => latest, }
 
-  package { 'puppet-common': ensure => latest, }
-
   package { 'python-beautifulsoup': ensure => latest, }
 
   package { 'python-cherrypy3': ensure => latest, }
@@ -855,6 +853,16 @@ class localhost::packages::misc {
   package { 'ruby1.8-dev': ensure => latest, }
 
   package { 'rubygems': ensure => latest, }
+
+  package { 'libjson-ruby': ensure => latest, }
+
+  package { 'ruby-json': ensure => latest, }
+
+  package { 'puppet-common': ensure => latest, }
+
+  package { 'facter': ensure => latest, }
+
+  package { 'hiera': ensure => latest, }
 
   package { 'samba': ensure => latest, }
 
