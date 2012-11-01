@@ -33,21 +33,21 @@ class localhost::packages::dev {
       File['/etc/bash_completion.d/git-flow']]
   }
 
-  package { 'virtualbox': ensure => latest, }
+  package { 'virtualbox-4.2': ensure => latest, }
 
   package { 'virtualbox-dkms':
     ensure  => latest,
-    require => Package['virtualbox'],
+    require => Package['virtualbox-4.2'],
   }
 
   package { 'virtualbox-qt':
     ensure  => latest,
-    require => Package['virtualbox'],
+    require => Package['virtualbox-4.2'],
   }
 
   package { 'vagrant':
     ensure  => latest,
-    require => Package['virtualbox'],
+    require => Package['virtualbox-4.2'],
   }
 
 }

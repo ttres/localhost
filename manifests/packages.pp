@@ -169,13 +169,15 @@ class localhost::packages {
   }
 
   # Blueprint GPG key
-  apt::key { 'devstructure': key_source => 'http://packages.devstructure.com/keyring.gpg', }
+  apt::key { 'devstructure-repo-key': key_source => 'http://packages.devstructure.com/keyring.gpg', }
 
   # Blueprint repository
   apt::source { 'devstructure':
     location    => 'http://packages.devstructure.com',
     repos       => 'main',
     include_src => false,
+    require     => [
+      Apt::Key['devstructure-repo-key']],
   }
 
   # Diodon clipboard manager
@@ -183,6 +185,18 @@ class localhost::packages {
     location => 'http://ppa.launchpad.net/diodon-team/stable/ubuntu',
     repos    => 'main',
     key      => '523884B2',
+  }
+
+  # VirtualBox key
+  apt::key { 'virtualbox-repo-key': key_source => 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc', }
+
+  # VirtualBox repo
+  apt::source { 'virtualbox-precise':
+    location    => 'http://download.virtualbox.org/virtualbox/debian',
+    repos       => 'contrib',
+    include_src => false,
+    require     => [
+      Apt::Key['virtualbox-repo-key']],
   }
 
   ############################################
