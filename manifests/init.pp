@@ -10,6 +10,7 @@ class localhost {
     }
   }
 
+  include localhost::mount
   include localhost::users
   include localhost::groups
   include localhost::packages
