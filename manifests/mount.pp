@@ -1,27 +1,19 @@
-# Manage filesystems
+# Manage file systems
 class localhost::mount {
-  file { '/media/SDATA1':
-    ensure => directory,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0777'
-  }
-
-  mount { '/media/SDATA1':
-    ensure  => mounted,
-    atboot  => true,
+  localhost::local_mount_point { 'SDATA1':
     device  => '/dev/sdb1',
     fstype  => 'ntfs-3g',
     options => 'defaults,nosuid,nodev,locale=pt_BR.utf8',
-    dump    => '0',
-    pass    => '0',
-    require => File['/media/SDATA1'],
   }
 
-  file { '/media/SDATA2':
-    ensure => directory,
-    owner  => 'taciano',
-    group  => 'taciano',
-    mode   => '0755'
+  localhost::local_mount_point { 'SDATA2':
+    device  => '/dev/sdb2',
+    fstype  => 'ext4',
+    options => 'defaults,nosuid,nodev',
+    owner   => 'taciano',
+    group   => 'taciano',
   }
+
+  network_mount_point { 'g': device => '//SRIBSA09086/SITGETEC1D4N2$' }
+
 }

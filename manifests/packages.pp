@@ -265,7 +265,7 @@ class localhost::packages {
 
 
   include localhost::packages::dev
-  include localhost::packages::fah
+  # include localhost::packages::fah
   include localhost::packages::media
   include localhost::packages::misc
   include localhost::packages::office
