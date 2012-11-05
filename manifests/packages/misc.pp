@@ -31,6 +31,20 @@ class localhost::packages::misc {
 
   package { 'aptdaemon-data': ensure => latest, }
 
+  package { 'base-files': ensure => latest, }
+
+  package { 'gir1.2-gudev-1.0': ensure => latest, }
+
+  package { 'libgudev-1.0-0': ensure => latest, }
+
+  package { 'libudev0': ensure => latest, }
+
+  package { 'libudev0:i386': ensure => latest, }
+
+  package { 'udev': ensure => latest, }
+
+  package { 'gnome-power-manager': ensure => latest, }
+
   package { 'libapt-inst1.4': ensure => latest, }
 
   package { 'libapt-pkg4.12': ensure => latest, }
@@ -742,7 +756,7 @@ class localhost::packages::misc {
 
   package { 'linux-generic': ensure => latest, }
 
-  package { 'linux-image-3.2.0-31-generic': ensure => latest, }
+  package { 'linux-image-3.2.0-32-generic': ensure => latest, }
 
   package { 'linux-image-generic': ensure => latest, }
 
