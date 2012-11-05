@@ -33,6 +33,14 @@ class localhost::packages::dev {
       File['/etc/bash_completion.d/git-flow']]
   }
 
+  ################################################
+  # VirtualBox
+  package { 'virtualbox': ensure => absent, }
+
+  package { 'virtualbox-4.0': ensure => absent, }
+
+  package { 'virtualbox-4.1': ensure => absent, }
+
   package { 'virtualbox-4.2': ensure => latest, }
 
   package { 'virtualbox-dkms':
