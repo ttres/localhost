@@ -1,15 +1,39 @@
-# Recursos referentes à ferramentas de desenvolvimento/codificação
+# = Class: localhost::packages::dev
+#
+# This class installs development/virtualization (and related) tools.
+# Only supported on Ubuntu-derived OSes.
+#
+# == Parameters:
+#
+# None.
+#
+# == Requires:
+#
+# Nothing.
+#
+# == Sample Usage:
+#
+#   include localhost::packages::dev
+#
 class localhost::packages::dev {
+  ##############################
+  # Version Control Software
+  ##############################
   package { 'cvs': ensure => latest }
-
-  package { 'stunnel4':
-    ensure  => latest,
-    require => Package['cvs'],
-  }
 
   package { 'subversion': ensure => latest }
 
   package { 'git': ensure => latest }
+
+  package { 'git-man': ensure => latest, }
+
+  ##############################
+  # Utils
+  ##############################
+  package { 'stunnel4':
+    ensure  => latest,
+    require => Package['cvs'],
+  }
 
   # Pacote para permitir autocomplete no Bash
   package { 'bash-completion': ensure => latest }
@@ -33,7 +57,9 @@ class localhost::packages::dev {
       File['/etc/bash_completion.d/git-flow']]
   }
 
-  ################################################
+  ##############################
+  # Virtualization
+  ##############################
   # VirtualBox
   package { 'virtualbox': ensure => absent, }
 
@@ -57,5 +83,4 @@ class localhost::packages::dev {
     ensure  => latest,
     require => Package['virtualbox-4.2'],
   }
-
 }

@@ -26,9 +26,9 @@ class localhost::packages::fah {
   }
 
   exec { 'enable-ignore-nice-load':
-    command   => 'echo 1 | tee /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load',
+    command   => 'ignore.nice.load 1',
     cwd       => '/',
-    path      => '/bin:/usr/bin',
+    path      => '/home/taciano/bin:/bin:/usr/bin',
     tries     => '3',
     try_sleep => '60',
     user      => 'root',
