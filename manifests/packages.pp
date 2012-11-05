@@ -168,6 +168,12 @@ class localhost::packages {
     key      => 'A49CCDDB',
   }
 
+  # Ubuntu Tweak
+  apt::source { 'ubuntu-tweak-precise':
+    location => 'http://ppa.launchpad.net/tualatrix/ubuntu/',
+    repos    => 'main',
+  }
+
   # Blueprint GPG key
   apt::key { 'devstructure-repo-key': key_source => 'http://packages.devstructure.com/keyring.gpg', }
 
