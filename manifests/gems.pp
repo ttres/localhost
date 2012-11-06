@@ -23,4 +23,12 @@ class localhost::gems {
     ensure   => latest,
     provider => 'gem',
   }
+
+  # Effing package managers! Build packages for multiple platforms (deb, rpm, etc) with great ease and sanity.
+  # https://github.com/jordansissel/fpm
+  package { 'fpm':
+    ensure   => latest,
+    provider => 'gem',
+  }
+
 }
