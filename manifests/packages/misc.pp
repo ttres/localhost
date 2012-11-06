@@ -1,8 +1,30 @@
-# Recursos referentes a pacotes gerais do sistema operacional
+# = Class: localhost::packages::misc
+#
+# This class (just) install miscellaneous operational system packages.
+# Only supported on Ubuntu OSes.
+#
+# == Parameters:
+#
+# None.
+#
+# == Requires:
+#
+# Nothing.
+#
+# == Sample Usage:
+#
+#   include localhost::packages::misc
+#
 class localhost::packages::misc {
+  ##################################
+  # Basic
+  ##################################
   # Editor de textos
   package { 'vim': ensure => latest }
 
+  ##################################
+  # Monitoring
+  ##################################
   # Substituto do 'top'
   package { 'htop': ensure => latest }
 
@@ -14,13 +36,32 @@ class localhost::packages::misc {
     require => Package['conky'],
   }
 
-  package { 'wget': ensure => latest }
+  ##################################
+  # File system
+  ##################################
+  package { 'cifs-utils': ensure => latest, }
 
+  package { 'smbfs': ensure => latest, }
+
+  ##################################
+  # Utils
+  ##################################
   # pacote para tratamento/validação de arquivos XML
   package { 'libxml2-utils': ensure => latest }
 
-  package { 'apport-symptoms': ensure => latest, }
+  # Transfer area manager
+  package { 'diodon': ensure => latest, }
 
+  package { 'tree': ensure => latest, }
+
+  # Bandwith limiter
+  package { 'trickle': ensure => latest, }
+
+  package { 'ubuntu-tweak': ensure => latest, }
+
+  ##################################
+  # Apt
+  ##################################
   package { 'apt': ensure => latest, }
 
   package { 'apt-transport-https': ensure => latest, }
@@ -30,6 +71,47 @@ class localhost::packages::misc {
   package { 'aptdaemon': ensure => latest, }
 
   package { 'aptdaemon-data': ensure => latest, }
+
+  package { 'libapt-inst1.4': ensure => latest, }
+
+  package { 'libapt-pkg4.12': ensure => latest, }
+
+  package { 'python-aptdaemon': ensure => latest, }
+
+  package { 'python-aptdaemon.gtk3widgets': ensure => latest, }
+
+  package { 'python-aptdaemon.pkcompat': ensure => latest, }
+
+  ##################################
+  # System fonts
+  ##################################
+  package { 'ttf-liberation': ensure => latest, }
+
+  package { 'ttf-mscorefonts-installer': ensure => latest, }
+
+  ##################################
+  # Indicators
+  ##################################
+  package { 'classicmenu-indicator': ensure => latest, }
+
+  package { 'disper-indicator': ensure => latest, }
+
+  package { 'indicator-applet-complete': ensure => latest, }
+
+  package { 'indicator-keylock': ensure => latest, }
+
+  package { 'indicator-multiload': ensure => latest, }
+
+  package { 'indicator-notifications': ensure => latest, }
+
+  package { 'indicator-status-provider-pidgin': ensure => latest, }
+
+  package { 'indicator-virtualbox': ensure => latest, }
+
+  package { 'touchpad-indicator': ensure => latest, }
+
+  # ################## Unfiltered ###############
+  package { 'apport-symptoms': ensure => latest, }
 
   package { 'base-files': ensure => latest, }
 
@@ -45,19 +127,9 @@ class localhost::packages::misc {
 
   package { 'gnome-power-manager': ensure => latest, }
 
-  package { 'libapt-inst1.4': ensure => latest, }
-
-  package { 'libapt-pkg4.12': ensure => latest, }
-
   package { 'lsb-base': ensure => latest, }
 
   package { 'lsb-release': ensure => latest, }
-
-  package { 'python-aptdaemon': ensure => latest, }
-
-  package { 'python-aptdaemon.gtk3widgets': ensure => latest, }
-
-  package { 'python-aptdaemon.pkcompat': ensure => latest, }
 
   package { 'xserver-xorg-input-wacom': ensure => latest, }
 
@@ -90,10 +162,6 @@ class localhost::packages::misc {
 
   package { 'cabextract': ensure => latest, }
 
-  package { 'cifs-utils': ensure => latest, }
-
-  package { 'classicmenu-indicator': ensure => latest, }
-
   package { 'crda': ensure => latest, }
 
   package { 'cups-pk-helper': ensure => latest, }
@@ -108,11 +176,7 @@ class localhost::packages::misc {
 
   package { 'dh-apparmor': ensure => latest, }
 
-  package { 'diodon': ensure => latest, }
-
   package { 'disper': ensure => latest, }
-
-  package { 'disper-indicator': ensure => latest, }
 
   package { 'dkms': ensure => latest, }
 
@@ -180,8 +244,6 @@ class localhost::packages::misc {
 
   package { 'glade2script': ensure => latest, }
 
-  package { 'git-man': ensure => latest, }
-
   package { 'gnome-applets': ensure => latest, }
 
   package { 'gnome-applets-data': ensure => latest, }
@@ -215,18 +277,6 @@ class localhost::packages::misc {
   package { 'hunspell': ensure => latest, }
 
   package { 'hyphen-en-us': ensure => latest, }
-
-  package { 'indicator-applet-complete': ensure => latest, }
-
-  package { 'indicator-keylock': ensure => latest, }
-
-  package { 'indicator-multiload': ensure => latest, }
-
-  package { 'indicator-notifications': ensure => latest, }
-
-  package { 'indicator-status-provider-pidgin': ensure => latest, }
-
-  package { 'indicator-virtualbox': ensure => latest, }
 
   package { 'intltool-debian': ensure => latest, }
 
@@ -796,19 +846,12 @@ class localhost::packages::misc {
 
   package { 'oss-compat': ensure => 1, }
 
+  # Python Pastebin client
   package { 'pastebinit': ensure => latest, }
 
   package { 'pax': ensure => latest, }
 
   package { 'perlmagick': ensure => latest, }
-
-  package { 'pidgin': ensure => latest, }
-
-  package { 'pidgin-data': ensure => latest, }
-
-  package { 'pidgin-libnotify': ensure => latest, }
-
-  package { 'pidgin-plugin-pack': ensure => latest, }
 
   package { 'po-debconf': ensure => latest, }
 
@@ -852,6 +895,7 @@ class localhost::packages::misc {
 
   package { 'python-webob': ensure => latest, }
 
+  # File compressor
   package { 'rar': ensure => latest, }
 
   package { 'rpm': ensure => latest, }
@@ -874,7 +918,9 @@ class localhost::packages::misc {
 
   package { 'puppet-common': ensure => latest, }
 
-  package { 'facter': ensure => latest, }
+  # Version locked up on '1.6.13-1puppetlabs1' because
+  # http://projects.puppetlabs.com/issues/17383
+  package { 'facter': ensure => '1.6.13-1puppetlabs1', }
 
   package { 'hiera': ensure => latest, }
 
@@ -882,31 +928,11 @@ class localhost::packages::misc {
 
   package { 'screen-resolution-extra': ensure => latest, }
 
-  package { 'shutter': ensure => latest, }
-
-  package { 'skype': ensure => latest, }
-
-  package { 'skype-bin': ensure => latest, }
-
-  package { 'smbfs': ensure => latest, }
-
   package { 'tdb-tools': ensure => latest, }
-
-  package { 'touchpad-indicator': ensure => latest, }
-
-  package { 'tree': ensure => latest, }
-
-  package { 'trickle': ensure => latest, }
 
   package { 'tsconf': ensure => latest, }
 
-  package { 'ttf-liberation': ensure => latest, }
-
-  package { 'ttf-mscorefonts-installer': ensure => latest, }
-
   package { 'ubuntu-restricted-addons': ensure => 12, }
-
-  package { 'ubuntu-tweak': ensure => latest, }
 
   package { 'wbrazilian': ensure => latest, }
 
@@ -916,6 +942,6 @@ class localhost::packages::misc {
 
   package { 'wportuguese': ensure => latest, }
 
-  package { 'yad': ensure => latest }
-}
+  package { 'yad': ensure => latest, }
 
+}
