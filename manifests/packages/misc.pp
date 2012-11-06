@@ -59,6 +59,12 @@ class localhost::packages::misc {
 
   package { 'ubuntu-tweak': ensure => latest, }
 
+  # Small shell applications
+  package { 'funcoeszz':
+    ensure  => latest,
+    require => Package['lynx-cur'],
+  }
+
   ##################################
   # Apt
   ##################################
