@@ -1,8 +1,8 @@
 name 'ttres-localhost'
-version '0.0.1'
+version '0.1.0'
 
 author 'ttres'
-license 'EPL'
+license 'Apache'
 project_page ''
 source ''
 summary ''
