@@ -21,13 +21,6 @@ class localhost::packages::media {
   ################################
   package { 'shutter': ensure => latest, }
 
-  ################################
-  # epub reader
-  ################################
-  package { 'calibre': ensure => latest, }
-
-  package { 'calibre-bin': ensure => latest, }
-
   package { 'ffmpeg': ensure => latest, }
 
   ################################
