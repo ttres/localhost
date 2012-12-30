@@ -46,10 +46,18 @@ class localhost::packages::devel {
   package { 'libgettextpo0': ensure => latest, }
 
   # Header files related to Linux kernel version 3.2.0
-  package { 'linux-headers-3.2.0-32': ensure => latest, }
+  package { 'linux-headers-3.2.0-32': ensure => absent, }
+
+  package { 'linux-headers-3.2.0-33': ensure => present, }
+
+  package { 'linux-headers-3.2.0-35': ensure => present, }
 
   # Linux kernel headers for version 3.2.0 on 64 bit x86 SMP
-  package { 'linux-headers-3.2.0-32-generic': ensure => latest, }
+  package { 'linux-headers-3.2.0-32-generic': ensure => absent, }
+
+  package { 'linux-headers-3.2.0-33-generic': ensure => present, }
+
+  package { 'linux-headers-3.2.0-35-generic': ensure => present, }
 
   # Linux Kernel Headers for development
   package { 'linux-libc-dev': ensure => latest, }
