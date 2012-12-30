@@ -25,9 +25,8 @@ class localhost::packages::web {
   package { 'firefox-locale-pt': ensure => latest, }
 
   # Interal package with Firefox ESR version
-  # TODO substituir o source por um repo apt
   package { 'bbfirefox-esr':
-    ensure   => present,
+    ensure   => absent,
     source   => '/home/taciano/Downloads/bbfirefox-esr_10.0.9-0_amd64.deb',
     provider => 'dpkg'
   }
