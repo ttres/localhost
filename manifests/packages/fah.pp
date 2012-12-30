@@ -50,8 +50,8 @@ class localhost::packages::fah {
     source   => 'puppet:///modules/localhost/fah/fahclient_7.1.52_amd64.deb',
     require  => [
       Package['libssl0.9.8'],
-      User['fahclient'],
-      Exec['enable-ignore-nice-load']],
+      User['fahclient']],
+   #   Exec['enable-ignore-nice-load']],
   }
 
   service { 'FAHClient': ensure => running, }
