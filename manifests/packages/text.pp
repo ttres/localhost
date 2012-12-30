@@ -9,6 +9,15 @@ class localhost::packages::text {
   # English dictionary for GNU Aspell
   package { 'aspell-en': ensure => latest, }
 
+  # Portuguese dictionaries for GNU Aspell (old package)
+  package { 'aspell-pt': ensure => latest, }
+
+  # European Portuguese dictionary for GNU Aspell
+  package { 'aspell-pt-pt': ensure => latest, }
+
+  # Brazilian Portuguese dictionary for GNU Aspell
+  package { 'aspell-pt-br': ensure => latest, }
+
   # e-book converter and library management
   package { 'calibre': ensure => latest, }
 
