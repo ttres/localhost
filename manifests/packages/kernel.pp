@@ -10,5 +10,9 @@ class localhost::packages::kernel {
   package { 'linux-image-3.2.0-31-generic': ensure => absent, }
 
   # Linux kernel image for version 3.2.0 on 64 bit x86 SMP
-  package { 'linux-image-3.2.0-32-generic': ensure => latest, }
+  package { 'linux-image-3.2.0-32-generic': ensure => present, }
+
+  # Linux kernel image for version 3.2.0 on 64 bit x86 SMP
+  package { 'linux-image-3.2.0-33-generic': ensure => present, }
+
 }
