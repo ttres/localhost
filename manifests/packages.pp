@@ -172,6 +172,7 @@ class localhost::packages {
   apt::source { 'ubuntu-tweak-precise':
     location => 'http://ppa.launchpad.net/tualatrix/ubuntu/',
     repos    => 'main',
+    key      => '0624A220'
   }
 
   # Blueprint GPG key
@@ -270,11 +271,56 @@ class localhost::packages {
   ############################################
 
 
-  include localhost::packages::dev
+  include localhost::packages::contrib::fonts
+  include localhost::packages::contrib::misc
+  include localhost::packages::contrib::utils
+  include localhost::packages::contrib::web
+  include localhost::packages::contrib::x11
+  include localhost::packages::nonfree::fonts
+  include localhost::packages::nonfree::gnome
+  include localhost::packages::nonfree::net
+  include localhost::packages::nonfree::utils
+  include localhost::packages::partner::net
+  include localhost::packages::restricted::misc
+  include localhost::packages::admin
+  include localhost::packages::comm
+  include localhost::packages::default
+  include localhost::packages::devel
+  include localhost::packages::doc
+  include localhost::packages::editors
+  include localhost::packages::embedded
+  include localhost::packages::extra
   include localhost::packages::fah
-  include localhost::packages::media
+  include localhost::packages::fonts
+  include localhost::packages::games
+  include localhost::packages::gnome
+  include localhost::packages::graphics
+  include localhost::packages::interpreters
+  include localhost::packages::introspection
+  include localhost::packages::kernel
+  include localhost::packages::libdevel
+  include localhost::packages::libs
+  include localhost::packages::lisp
+  include localhost::packages::localization
+  include localhost::packages::mail
+  include localhost::packages::math
+  include localhost::packages::metapackages
   include localhost::packages::misc
-  include localhost::packages::office
+  include localhost::packages::net
+  include localhost::packages::oldlibs
+  include localhost::packages::otherosfs
+  include localhost::packages::perl
+  include localhost::packages::python
+  include localhost::packages::ruby
+  include localhost::packages::shells
+  include localhost::packages::sound
+  include localhost::packages::text
+  include localhost::packages::translations
+  include localhost::packages::utils
+  include localhost::packages::vcs
+  include localhost::packages::video
   include localhost::packages::web
+  include localhost::packages::x11
+  include localhost::packages::zope
 
 }

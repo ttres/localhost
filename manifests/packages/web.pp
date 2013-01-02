@@ -1,81 +1,54 @@
-# = Class: localhost::packages::web
-#
-# This class (just) installs web related OSes packages.
-# Only supported on Ubuntu-derived OSes.
-#
-# == Parameters:
-#
-# None.
-#
-# == Requires:
-#
-# Nothing.
-#
-# == Sample Usage:
-#
-#   include localhost::packages::web
 #
 class localhost::packages::web {
-  ##############################
-  # Basic
-  ##############################
-  package { 'wget': ensure => latest }
-
-  ##############################
-  # Web Browser
-  ##############################
+  # Chromium browser
   package { 'chromium-browser': ensure => latest, }
 
+  # chromium-browser language packages
   package { 'chromium-browser-l10n': ensure => latest, }
 
+  # Free ffmpeg codecs for the Chromium Browser
   package { 'chromium-codecs-ffmpeg': ensure => latest, }
 
-  package { 'lynx-cur': ensure => latest, }
+  # Get a file from an HTTP, HTTPS or FTP server
+  package { 'curl': ensure => latest, }
 
+  # Safe and easy web browser from Mozilla
   package { 'firefox': ensure => latest, }
 
-  package { 'firefox-gnome-support':
-    ensure  => latest,
-    require => Package['firefox'],
-  }
+  # Unity appmenu integration for Firefox
+  package { 'firefox-globalmenu': ensure => latest, }
 
-  package { 'firefox-locale-pt':
-    ensure  => latest,
-    require => Package['firefox'],
-  }
+  # English language pack for Firefox
+  package { 'firefox-locale-en': ensure => latest, }
 
-  package { 'firefox-locale-en':
-    ensure  => latest,
-    require => Package['firefox'],
-  }
+  # Portuguese language pack for Firefox
+  package { 'firefox-locale-pt': ensure => latest, }
 
-  # Pacote interno de versão estável do Firefox
-  # TODO substituir o source por um repo apt
+  # Interal package with Firefox ESR version
   package { 'bbfirefox-esr':
-    ensure   => present,
+    ensure   => absent,
     source   => '/home/taciano/Downloads/bbfirefox-esr_10.0.9-0_amd64.deb',
     provider => 'dpkg'
   }
 
-  ##############################
-  # Instant Messaging
-  ##############################
-  package { 'pidgin': ensure => latest, }
+  # advanced HTML to text converter
+  package { 'html2text': ensure => latest, }
 
-  package { 'pidgin-data': ensure => latest, }
+  # JavaScript library for dynamic web applications
+  package { 'libjs-jquery': ensure => latest, }
 
-  package { 'pidgin-libnotify': ensure => latest, }
+  # Text-mode WWW Browser (transitional package)
+  package { 'lynx': ensure => latest, }
 
-  package { 'pidgin-plugin-pack': ensure => latest, }
+  # Text-mode WWW Browser with NLS support (development version)
+  package { 'lynx-cur': ensure => latest, }
 
-  ##############################
-  # (S)FTP
-  ##############################
-  package { 'filezilla': ensure => latest, }
+  # Rhythmbox Mozilla plugin
+  package { 'rhythmbox-mozilla': ensure => latest, }
 
-  package { 'filezilla-common':
-    ensure  => latest,
-    require => Package['filezilla'],
-  }
+  # retrieves files from the web
+  package { 'wget': ensure => latest, }
 
+  # Ubuntu-specific configuration defaults and apt support for Firefox
+  package { 'xul-ext-ubufox': ensure => latest, }
 }
