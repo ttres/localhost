@@ -48,16 +48,20 @@ class localhost::packages::devel {
   # Header files related to Linux kernel version 3.2.0
   package { 'linux-headers-3.2.0-32': ensure => absent, }
 
-  package { 'linux-headers-3.2.0-33': ensure => present, }
+  package { 'linux-headers-3.2.0-33': ensure => absent, }
 
   package { 'linux-headers-3.2.0-35': ensure => present, }
+
+  package { 'linux-headers-3.2.0-36': ensure => present, }
 
   # Linux kernel headers for version 3.2.0 on 64 bit x86 SMP
   package { 'linux-headers-3.2.0-32-generic': ensure => absent, }
 
-  package { 'linux-headers-3.2.0-33-generic': ensure => present, }
+  package { 'linux-headers-3.2.0-33-generic': ensure => absent, }
 
   package { 'linux-headers-3.2.0-35-generic': ensure => present, }
+
+  package { 'linux-headers-3.2.0-36-generic': ensure => present, }
 
   # Linux Kernel Headers for development
   package { 'linux-libc-dev': ensure => latest, }
