@@ -206,6 +206,13 @@ class localhost::packages {
       Apt::Key['virtualbox-repo-key']],
   }
 
+  # Handbrake (http://handbrake.fr/)
+  apt::source { 'handbrake-precise':
+    location    => 'http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu',
+    repos       => 'main',
+    key         => '816950D8',
+  }
+
   ############################################
   # Start of apt.conf
   apt::conf { 'aptitude':

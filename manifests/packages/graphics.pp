@@ -32,4 +32,11 @@ class localhost::packages::graphics {
 
   # API library for scanners -- utilities
   package { 'sane-utils': ensure => latest, }
+
+  # Handbrake
+  # versatile DVD ripper and video transcoder - command line
+  package { 'handbrake-cli': ensure => latest, }
+
+  # versatile DVD ripper and video transcoder - GTK GUI
+  package { 'handbrake-gtk': ensure => latest, }
 }
