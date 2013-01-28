@@ -90,6 +90,9 @@ class localhost::packages::utils {
   # Filesystem in Userspace
   package { 'fuse': ensure => latest, }
 
+  # This driver is the first free exFAT file system implementation with write support
+  package { 'fuse-exfat': ensure => latest, }
+
   # Geographic information framework
   package { 'geoclue': ensure => latest, }
 
