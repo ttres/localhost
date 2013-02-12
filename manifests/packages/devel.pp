@@ -50,18 +50,22 @@ class localhost::packages::devel {
 
   package { 'linux-headers-3.2.0-33': ensure => absent, }
 
-  package { 'linux-headers-3.2.0-35': ensure => present, }
+  package { 'linux-headers-3.2.0-35': ensure => absent, }
 
   package { 'linux-headers-3.2.0-36': ensure => present, }
+
+  package { 'linux-headers-3.2.0-37': ensure => present, }
 
   # Linux kernel headers for version 3.2.0 on 64 bit x86 SMP
   package { 'linux-headers-3.2.0-32-generic': ensure => absent, }
 
   package { 'linux-headers-3.2.0-33-generic': ensure => absent, }
 
-  package { 'linux-headers-3.2.0-35-generic': ensure => present, }
+  package { 'linux-headers-3.2.0-35-generic': ensure => absent, }
 
   package { 'linux-headers-3.2.0-36-generic': ensure => present, }
+
+  package { 'linux-headers-3.2.0-37-generic': ensure => present, }
 
   # Linux Kernel Headers for development
   package { 'linux-libc-dev': ensure => latest, }

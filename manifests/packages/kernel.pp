@@ -8,8 +8,9 @@ class localhost::packages::kernel {
 
   package { 'linux-image-3.2.0-33-generic': ensure => absent, }
 
-  package { 'linux-image-3.2.0-35-generic': ensure => present, }
+  package { 'linux-image-3.2.0-35-generic': ensure => absent, }
 
   package { 'linux-image-3.2.0-36-generic': ensure => present, }
 
+  package { 'linux-image-3.2.0-37-generic': ensure => present, }
 }
