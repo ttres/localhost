@@ -1,4 +1,7 @@
 <config>
+  <!-- Folding Slot Configuration -->
+  <cause-pref v='CANCER'/>
+
   <!-- Logging -->
   <verbosity v='5'/>
 
