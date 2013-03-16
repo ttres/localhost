@@ -1,13 +1,16 @@
 #
 class localhost::packages::metapackages {
+
+  $kernel_version_real = '3.2.0.37.45'
+
   # Complete Generic Linux kernel
-  package { 'linux-generic': ensure => latest, }
+  package { 'linux-generic': ensure => $kernel_version_real, }
 
   # Generic Linux kernel headers
-  package { 'linux-headers-generic': ensure => latest, }
+  package { 'linux-headers-generic': ensure => $kernel_version_real, }
 
   # Generic Linux kernel image
-  package { 'linux-image-generic': ensure => latest, }
+  package { 'linux-image-generic': ensure => $kernel_version_real, }
 
   # read/write NTFS driver for FUSE (transitional package)
   package { 'ntfsprogs': ensure => latest, }

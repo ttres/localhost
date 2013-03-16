@@ -68,7 +68,7 @@ class localhost::packages::devel {
   package { 'linux-headers-3.2.0-37-generic': ensure => present, }
 
   # Linux Kernel Headers for development
-  package { 'linux-libc-dev': ensure => latest, }
+  package { 'linux-libc-dev': ensure => '3.2.0-37.58', }
 
   # An utility for Directing compilation.
   package { 'make': ensure => latest, }
