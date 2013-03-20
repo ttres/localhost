@@ -3,7 +3,8 @@ class localhost::packages::ruby {
   # Ruby module for collecting simple facts about a host operating system
   # Version locked up on '1.6.13-1puppetlabs1' because
   # http://projects.puppetlabs.com/issues/17383
-  package { 'facter': ensure => '1.6.13-1puppetlabs1', }
+  # package { 'facter': ensure => '1.6.13-1puppetlabs1', }
+  package { 'facter': ensure => latest, }
 
   # Augeas bindings for the Ruby language
   package { 'libaugeas-ruby1.8': ensure => latest, }
