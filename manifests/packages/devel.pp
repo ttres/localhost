@@ -50,32 +50,31 @@ class localhost::packages::devel {
     'linux-headers-3.2.0-33',
     'linux-headers-3.2.0-35',
     'linux-headers-3.2.0-36',
-  ]
+    'linux-headers-3.2.0-37',]
 
   # Header files related to Linux kernel version 3.2.0
   package { $old_kernel_packages_real: ensure => absent, }
 
-  package { 'linux-headers-3.2.0-37': ensure => present, }
-
   package { 'linux-headers-3.2.0-39': ensure => present, }
 
+  package { 'linux-headers-3.2.0-40': ensure => present, }
 
   $old_kernel_headers_packages_real = [
     'linux-headers-3.2.0-32-generic',
     'linux-headers-3.2.0-33-generic',
     'linux-headers-3.2.0-35-generic',
     'linux-headers-3.2.0-36-generic',
-  ]
+    'linux-headers-3.2.0-37-generic',]
 
   # Linux kernel headers for version 3.2.0 on 64 bit x86 SMP
   package { $old_kernel_headers_packages_real: ensure => absent, }
 
-  package { 'linux-headers-3.2.0-37-generic': ensure => present, }
-
   package { 'linux-headers-3.2.0-39-generic': ensure => present, }
 
+  package { 'linux-headers-3.2.0-40-generic': ensure => present, }
+
   # Linux Kernel Headers for development
-  package { 'linux-libc-dev': ensure => '3.2.0-39.62', }
+  package { 'linux-libc-dev': ensure => '3.2.0-40.64', }
 
   # An utility for Directing compilation.
   package { 'make': ensure => latest, }
