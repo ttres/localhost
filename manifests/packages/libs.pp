@@ -2835,4 +2835,6 @@ class localhost::packages::libs {
   # compression library - runtime
   package { 'zlib1g:i386': ensure => latest, }
 
+  # MySQL database client library
+  package { 'libmysqlclient18:i386': ensure => absent, }
 }

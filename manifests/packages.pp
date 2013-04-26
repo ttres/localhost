@@ -291,6 +291,7 @@ class localhost::packages {
   include localhost::packages::restricted::misc
   include localhost::packages::admin
   include localhost::packages::comm
+  include localhost::packages::database
   include localhost::packages::default
   include localhost::packages::devel
   include localhost::packages::doc
