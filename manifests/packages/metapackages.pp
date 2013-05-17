@@ -1,6 +1,6 @@
 #
 class localhost::packages::metapackages {
-  $kernel_version_real = '3.2.0.40.48'
+  $kernel_version_real = '3.2.0.43.51'
 
   # Complete Generic Linux kernel
   package { 'linux-generic': ensure => $kernel_version_real, }
