@@ -273,11 +273,13 @@ class localhost::packages::admin {
   # utilities that use the proc file system
   package { 'psmisc': ensure => latest, }
 
+  $puppet_version_real = '3.1.1-1puppetlabs1'
+
   # Centralized configuration management - agent startup and compatibility scripts
-  package { 'puppet': ensure => latest, }
+  package { 'puppet': ensure => $puppet_version_real, }
 
   # Centralized configuration management
-  package { 'puppet-common': ensure => latest, }
+  package { 'puppet-common': ensure => $puppet_version_real, }
 
   # package manager for RPM
   package { 'rpm': ensure => latest, }
@@ -347,4 +349,7 @@ class localhost::packages::admin {
 
   # create a startup disk using a CD or disc image (for GNOME)
   package { 'usb-creator-gtk': ensure => latest, }
+
+  # detect if we are running in a virtual machine
+  package { 'virt-what': ensure => latest, }
 }
