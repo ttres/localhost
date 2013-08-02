@@ -46,9 +46,15 @@ class localhost::packages::web {
   # Rhythmbox Mozilla plugin
   package { 'rhythmbox-mozilla': ensure => latest, }
 
+  # Small dumper for media content streamed over the RTMP protocol
+  package { 'rtmpdump': ensure => latest, }
+
   # retrieves files from the web
   package { 'wget': ensure => latest, }
 
   # Ubuntu-specific configuration defaults and apt support for Firefox
   package { 'xul-ext-ubufox': ensure => latest, }
+
+  # Downloader of videos from YouTube and other sites
+  package { 'youtube-dl': ensure => latest, }
 }
