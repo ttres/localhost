@@ -11,12 +11,14 @@ class localhost::packages::kernel {
     'linux-image-3.2.0-39-generic',
     'linux-image-3.2.0-40-generic',
     'linux-image-3.2.0-43-generic',
+    'linux-image-3.2.0-45-generic',
+    'linux-image-3.2.0-48-generic',
   ]
 
   # Linux kernel image for version 3.2.0 on 64 bit x86 SMP
   package { $old_kernel_images_packages_real: ensure => absent, }
 
-  package { 'linux-image-3.2.0-45-generic': ensure => present, }
+  package { 'linux-image-3.2.0-51-generic': ensure => present, }
 
-  package { 'linux-image-3.2.0-48-generic': ensure => present, }
+  package { 'linux-image-3.2.0-52-generic': ensure => present, }
 }
