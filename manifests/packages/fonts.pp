@@ -9,6 +9,9 @@ class localhost::packages::fonts {
   # generic font configuration library - configuration
   package { 'fontconfig-config': ensure => latest, }
 
+  # Inconsolata font (http://levien.com/type/myfonts/inconsolata.html)
+  package { 'fonts-inconsolata': ensure => latest, }
+
   # KACST free TrueType Arabic fonts
   package { 'fonts-kacst': ensure => latest, }
 
