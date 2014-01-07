@@ -4,13 +4,15 @@ class localhost::packages::contrib::misc {
   $virtualbox_old_versions = [
     'virtualbox',
     'virtualbox-4.0',
-    'virtualbox-4.1',]
+    'virtualbox-4.1',
+    'virtualbox-4.2',
+  ]
 
   # VirtualBox old versions shouldn't be installed
   package { $virtualbox_old_versions: ensure => absent, }
 
   # Oracle VM VirtualBox
-  package { 'virtualbox-4.2': ensure => latest, }
+  package { 'virtualbox-4.3': ensure => latest, }
 
   package { 'virtualbox-dkms': ensure => absent, }
 
