@@ -8,6 +8,7 @@ class localhost {
       include localhost::packages
       include localhost::hosts
       include localhost::gems
+      include localhost::config
       # include localhost::services
     }
     default  : {

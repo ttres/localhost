@@ -9,7 +9,7 @@ class localhost::hosts {
   }
 
   host { $::hostname:
-    ensure => present,
+    ensure => absent,
     ip     => $::ipaddress_wlan0,
   }
 }
