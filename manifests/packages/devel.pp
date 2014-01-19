@@ -46,49 +46,33 @@ class localhost::packages::devel {
   package { 'libgettextpo0': ensure => latest, }
 
   $old_kernel_packages_real = [
-    'linux-headers-3.2.0-33',
-    'linux-headers-3.2.0-35',
-    'linux-headers-3.2.0-36',
-    'linux-headers-3.2.0-37',
-    'linux-headers-3.2.0-39',
-    'linux-headers-3.2.0-40',
-    'linux-headers-3.2.0-43',
-    'linux-headers-3.2.0-45',
-    'linux-headers-3.2.0-48',
     'linux-headers-3.2.0-51',
     'linux-headers-3.2.0-52',
+    'linux-headers-3.2.0-53',
   ]
 
   # Header files related to Linux kernel version 3.2.0
   package { $old_kernel_packages_real: ensure => absent, }
-
-  package { 'linux-headers-3.2.0-53': ensure => present, }
-
+  ->
   package { 'linux-headers-3.2.0-56': ensure => present, }
+  ->
+  package { 'linux-headers-3.2.0-58': ensure => present, }
 
   $old_kernel_headers_packages_real = [
-    'linux-headers-3.2.0-33-generic',
-    'linux-headers-3.2.0-35-generic',
-    'linux-headers-3.2.0-36-generic',
-    'linux-headers-3.2.0-37-generic',
-    'linux-headers-3.2.0-39-generic',
-    'linux-headers-3.2.0-40-generic',
-    'linux-headers-3.2.0-43-generic',
-    'linux-headers-3.2.0-45-generic',
-    'linux-headers-3.2.0-48-generic',
     'linux-headers-3.2.0-51-generic',
     'linux-headers-3.2.0-52-generic',
+    'linux-headers-3.2.0-53-generic',
   ]
 
   # Linux kernel headers for version 3.2.0 on 64 bit x86 SMP
   package { $old_kernel_headers_packages_real: ensure => absent, }
-
-  package { 'linux-headers-3.2.0-53-generic': ensure => present, }
-
+  ->
   package { 'linux-headers-3.2.0-56-generic': ensure => present, }
+  ->
+  package { 'linux-headers-3.2.0-58-generic': ensure => present, }
 
   # Linux Kernel Headers for development
-  package { 'linux-libc-dev': ensure => '3.2.0-56.86', }
+  package { 'linux-libc-dev': ensure => '3.2.0-58.88', }
 
   # An utility for Directing compilation.
   package { 'make': ensure => latest, }
