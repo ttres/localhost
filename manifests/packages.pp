@@ -172,7 +172,7 @@ class localhost::packages {
   apt::source { 'ubuntu-tweak-precise':
     location => 'http://ppa.launchpad.net/tualatrix/ubuntu/',
     repos    => 'main',
-    key      => '0624A220'
+    key      => '0624A220',
   }
 
   # Blueprint GPG key
@@ -218,117 +218,232 @@ class localhost::packages {
   apt::conf { 'aptitude':
     content  => template('localhost/etc/apt/apt.conf.d/aptitude.erb'),
     priority => '00',
+    before   => Class['apt'],
   }
 
   apt::conf { 'trustcdrom':
     content  => template('localhost/etc/apt/apt.conf.d/trustcdrom.erb'),
     priority => '00',
+    before   => Class['apt'],
   }
 
   apt::conf { 'autoremove':
     content  => template('localhost/etc/apt/apt.conf.d/autoremove.erb'),
     priority => '01',
+    before   => Class['apt'],
   }
 
   apt::conf { 'periodic':
     content  => template('localhost/etc/apt/apt.conf.d/periodic.erb'),
     priority => '10',
+    before   => Class['apt'],
   }
 
   apt::conf { 'update-stamp':
     content  => template('localhost/etc/apt/apt.conf.d/update-stamp.erb'),
     priority => '15',
+    before   => Class['apt'],
   }
 
   apt::conf { 'archive':
     content  => template('localhost/etc/apt/apt.conf.d/archive.erb'),
     priority => '20',
+    before   => Class['apt'],
   }
 
   apt::conf { 'changelog':
     content  => template('localhost/etc/apt/apt.conf.d/changelog.erb'),
     priority => '20',
+    before   => Class['apt'],
   }
 
   apt::conf { 'dbus':
     content  => template('localhost/etc/apt/apt.conf.d/dbus.erb'),
     priority => '20',
+    before   => Class['apt'],
   }
 
   apt::conf { 'unattended-upgrades':
     content  => template('localhost/etc/apt/apt.conf.d/unattended-upgrades.erb'),
     priority => '50',
+    before   => Class['apt'],
   }
 
   apt::conf { 'debconf':
     content  => template('localhost/etc/apt/apt.conf.d/debconf.erb'),
     priority => '70',
+    before   => Class['apt'],
   }
 
   apt::conf { 'synaptic':
     content  => template('localhost/etc/apt/apt.conf.d/synaptic.erb'),
     priority => '99',
+    before   => Class['apt'],
   }
 
   apt::conf { 'update-notifier':
     content  => template('localhost/etc/apt/apt.conf.d/update-notifier.erb'),
     priority => '99',
+    before   => Class['apt'],
   }
   # End of apt.conf
   ############################################
 
 
-  include localhost::packages::contrib::fonts
-  include localhost::packages::contrib::misc
-  include localhost::packages::contrib::utils
-  include localhost::packages::contrib::web
-  include localhost::packages::contrib::x11
-  include localhost::packages::nonfree::fonts
-  include localhost::packages::nonfree::gnome
-  include localhost::packages::nonfree::net
-  include localhost::packages::nonfree::utils
-  include localhost::packages::partner::net
-  include localhost::packages::restricted::misc
-  include localhost::packages::admin
-  include localhost::packages::comm
-  include localhost::packages::database
-  include localhost::packages::default
-  include localhost::packages::devel
-  include localhost::packages::doc
-  include localhost::packages::editors
-  include localhost::packages::embedded
-  include localhost::packages::extra
-  include localhost::packages::fah
-  include localhost::packages::fonts
-  include localhost::packages::games
-  include localhost::packages::gnome
-  include localhost::packages::graphics
-  include localhost::packages::interpreters
-  include localhost::packages::introspection
-  include localhost::packages::kernel
-  include localhost::packages::libdevel
-  include localhost::packages::libs
-  include localhost::packages::lisp
-  include localhost::packages::localization
-  include localhost::packages::mail
-  include localhost::packages::math
-  include localhost::packages::metapackages
-  include localhost::packages::misc
-  include localhost::packages::net
-  include localhost::packages::oldlibs
-  include localhost::packages::otherosfs
-  include localhost::packages::perl
-  include localhost::packages::python
-  include localhost::packages::ruby
-  include localhost::packages::shells
-  include localhost::packages::sound
-  include localhost::packages::text
-  include localhost::packages::translations
-  include localhost::packages::utils
-  include localhost::packages::vcs
-  include localhost::packages::video
-  include localhost::packages::web
-  include localhost::packages::x11
-  include localhost::packages::zope
-
+  class { 'localhost::packages::contrib::fonts':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::contrib::misc':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::contrib::utils':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::contrib::web':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::contrib::x11':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::nonfree::fonts':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::nonfree::gnome':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::nonfree::net':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::nonfree::utils':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::partner::net':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::restricted::misc':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::admin':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::comm':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::database':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::default':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::devel':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::doc':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::editors':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::embedded':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::extra':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::fah':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::fonts':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::games':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::gnome':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::graphics':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::interpreters':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::introspection':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::kernel':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::libdevel':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::libs':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::lisp':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::localization':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::mail':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::math':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::metapackages':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::misc':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::net':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::oldlibs':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::otherosfs':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::perl':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::python':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::ruby':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::shells':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::sound':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::text':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::translations':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::utils':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::vcs':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::video':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::web':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::x11':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::zope':
+    require => Class['apt'],
+  }
 }

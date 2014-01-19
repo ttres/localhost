@@ -3,13 +3,18 @@
 class localhost {
   case $::operatingsystem {
     'Ubuntu' : {
-      include localhost::users
-      include localhost::groups
-      include localhost::packages
-      include localhost::hosts
-      include localhost::gems
-      include localhost::config
-      # include localhost::services
+      class { 'localhost::groups': }
+      ->
+      class { 'localhost::users': }
+      ->
+      class { 'localhost::hosts': }
+      ->
+      class { 'localhost::packages': }
+      ->
+      class { 'localhost::config': }
+      class { 'localhost::gems': }
+      # ->
+      # class { 'localhost::services': }
     }
     default  : {
       fail 'Ubuntu is the only Linux supported. I\'m sorry for that.'
