@@ -11,4 +11,10 @@ class localhost::packages::games {
 
   # classic Eastern tile game for GNOME
   package { 'mahjongg': ensure => latest, }
+
+  # chess game with 3D graphics
+  package { 'glchess': ensure => latest, }
+
+  # chess database with play and training functionality
+  package { 'scid': ensure => latest, }
 }
