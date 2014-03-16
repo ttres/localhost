@@ -94,7 +94,7 @@ class localhost::packages::x11 {
   package { 'sni-qt': ensure => latest, }
 
   # indicator support for Qt
-  package { 'sni-qt:i386': ensure => absent, }
+  package { 'sni-qt:i386': ensure => purged, }
 
   # A droid derived Sans-Seri style CJK font
   package { 'ttf-wqy-microhei': ensure => latest, }

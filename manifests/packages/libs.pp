@@ -1111,7 +1111,7 @@ class localhost::packages::libs {
   package { 'libgstreamer0.10-0': ensure => latest, }
 
   # Core GStreamer libraries and elements
-  package { 'libgstreamer0.10-0:i386': ensure => absent, }
+  package { 'libgstreamer0.10-0:i386': ensure => purged, }
 
   # GTK+ graphical user interface library
   package { 'libgtk-3-0': ensure => latest, }
@@ -2194,7 +2194,7 @@ class localhost::packages::libs {
   package { 'libsqlite3-0': ensure => latest, }
 
   # SQLite 3 shared library
-  package { 'libsqlite3-0:i386': ensure => absent, }
+  package { 'libsqlite3-0:i386': ensure => purged, }
 
   # command-line interface parsing library
   package { 'libss2': ensure => latest, }
@@ -2548,7 +2548,7 @@ class localhost::packages::libs {
   package { 'libx11-xcb1': ensure => latest, }
 
   # Xlib/XCB interface library
-  package { 'libx11-xcb1:i386': ensure => absent, }
+  package { 'libx11-xcb1:i386': ensure => purged, }
 
   # x264 video coding library
   package { 'libx264-120': ensure => latest, }
@@ -2770,7 +2770,7 @@ class localhost::packages::libs {
   package { 'libxxf86vm1': ensure => latest, }
 
   # X11 XFree86 video mode extension library
-  package { 'libxxf86vm1:i386': ensure => absent, }
+  package { 'libxxf86vm1:i386': ensure => purged, }
 
   # Yet Another JSON Library
   package { 'libyajl1': ensure => latest, }
