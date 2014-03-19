@@ -46,35 +46,33 @@ class localhost::packages::devel {
   package { 'libgettextpo0': ensure => latest, }
 
   $old_kernel_packages_real = [
-    'linux-headers-3.2.0-51',
-    'linux-headers-3.2.0-52',
     'linux-headers-3.2.0-53',
     'linux-headers-3.2.0-56',
+    'linux-headers-3.2.0-58',
   ]
 
   # Header files related to Linux kernel version 3.2.0
   package { $old_kernel_packages_real: ensure => absent, }
   ->
-  package { 'linux-headers-3.2.0-58': ensure => present, }
-  ->
   package { 'linux-headers-3.2.0-59': ensure => present, }
+  ->
+  package { 'linux-headers-3.2.0-60': ensure => present, }
 
   $old_kernel_headers_packages_real = [
-    'linux-headers-3.2.0-51-generic',
-    'linux-headers-3.2.0-52-generic',
     'linux-headers-3.2.0-53-generic',
     'linux-headers-3.2.0-56-generic',
+    'linux-headers-3.2.0-58-generic',
   ]
 
   # Linux kernel headers for version 3.2.0 on 64 bit x86 SMP
   package { $old_kernel_headers_packages_real: ensure => absent, }
   ->
-  package { 'linux-headers-3.2.0-58-generic': ensure => present, }
-  ->
   package { 'linux-headers-3.2.0-59-generic': ensure => present, }
+  ->
+  package { 'linux-headers-3.2.0-60-generic': ensure => present, }
 
   # Linux Kernel Headers for development
-  package { 'linux-libc-dev': ensure => '3.2.0-59.90', }
+  package { 'linux-libc-dev': ensure => '3.2.0-60.91', }
 
   # An utility for Directing compilation.
   package { 'make': ensure => latest, }
