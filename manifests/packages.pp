@@ -175,6 +175,13 @@ class localhost::packages {
     key      => '0624A220',
   }
 
+  # ReText Markdown editor
+  apt::source { 'retext-precise':
+    location => 'http://ppa.launchpad.net/mitya57/retext-beta/ubuntu',
+    repos    => 'main',
+    key      => 'EB999287',
+  }
+
   # Blueprint GPG key
   apt::key { 'devstructure-repo-key': key_source => 'http://packages.devstructure.com/keyring.gpg', }
 
@@ -411,6 +418,9 @@ class localhost::packages {
     require => Class['apt'],
   }
   class { 'localhost::packages::python':
+    require => Class['apt'],
+  }
+  class { 'localhost::packages::retext':
     require => Class['apt'],
   }
   class { 'localhost::packages::ruby':
