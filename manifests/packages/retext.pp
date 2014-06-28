@@ -1,6 +1,7 @@
+# Class to install ReText Editor
 class localhost::packages::retext {
 
-  # 
+  # ReText and dependencies
   package { 'docutils-common': ensure => latest, }
   package { 'python3': ensure => latest, }
   package { 'python3-docutils': ensure => latest, }
