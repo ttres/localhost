@@ -12,6 +12,11 @@ class localhost::packages::net {
   # Version of 'host' bundled with BIND 9.X
   package { 'bind9-host': ensure => latest, }
 
+  # Utilities for configuring the Linux Ethernet bridge
+  # Trying to solve VirtualBox bridged network problems
+  # http://superuser.com/questions/653297/unable-to-ping-guest-from-host-and-vise-versa-in-oracle-virtual-box
+  package { 'bridge-utils': ensure => latest, }
+
   # wireless Central Regulatory Domain Agent
   package { 'crda': ensure => latest, }
 
