@@ -333,6 +333,9 @@ class localhost::packages {
   class { 'localhost::packages::admin':
     require => Class['apt'],
   }
+  class { 'localhost::packages::audacity':
+    require => Class['apt'],
+  }
   class { 'localhost::packages::comm':
     require => Class['apt'],
   }
